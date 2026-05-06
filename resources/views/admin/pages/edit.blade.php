@@ -1,0 +1,55 @@
+@extends('admin.layout')
+
+@section('title','Edit Halaman')
+
+@section('content')
+<div class="flex items-center justify-between mb-4">
+    <h1 class="text-xl font-bold flex items-center gap-2">
+        <span class="material-symbols-outlined text-emerald-600">edit</span>
+        Edit Halaman
+    </h1>
+</div>
+
+<form method="POST" action="{{ route('admin.pages.update', $page) }}" class="bg-white p-6 rounded shadow">
+@csrf @method('PUT')
+
+    <label class="block mb-2">Judul</label>
+    <input name="title" value="{{ old('title', $page->title) }}" class="w-full border rounded px-3 py-2 mb-3">
+
+    <label class="block mb-2">Slug</label>
+    <input name="slug" value="{{ old('slug', $page->slug) }}" class="w-full border rounded px-3 py-2 mb-3">
+
+    <label class="block mb-2">Konten</label>
+    <textarea name="content" id="editor" class="w-full border rounded px-3 py-2 mb-3">{!! old('content', $page->content) !!}</textarea>
+
+    <label class="block mb-2">Meta Title</label>
+    <input name="meta_title" value="{{ old('meta_title', $page->meta_title) }}" class="w-full border rounded px-3 py-2 mb-3">
+
+    <label class="block mb-2">Meta Description</label>
+    <textarea name="meta_description" class="w-full border rounded px-3 py-2 mb-3">{{ old('meta_description', $page->meta_description) }}</textarea>
+
+    <label class="inline-flex items-center mb-4">
+        <input type="checkbox" name="is_active" value="1" {{ old('is_active', $page->is_active) ? 'checked' : '' }}>
+        <span class="ml-2">Aktif</span>
+    </label>
+
+    <div class="flex gap-2">
+        <button class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
+            <span class="material-symbols-outlined">save</span>
+            Update
+        </button>
+
+        <a href="{{ route('admin.pages.index') }}" class="px-4 py-2 rounded border border-emerald-100 text-emerald-700 hover:bg-emerald-50 inline-flex items-center gap-2">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Batal
+        </a>
+    </div>
+
+</form>
+
+@push('scripts')
+    <script>
+        // Initialization is handled by resources/js/ckeditor.js via app.js
+    </script>
+@endpush
+@endsection

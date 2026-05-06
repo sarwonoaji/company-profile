@@ -1,0 +1,8 @@
+*
+!.gitignore
+!anggotas/
+!anggotas/**
+!news/
+!news/**
+!setting/
+!setting/**
