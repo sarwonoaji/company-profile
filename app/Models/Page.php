@@ -14,7 +14,6 @@ class Page extends Model
         'title',
         'content',
         'meta_title',
-        'meta_description',
         'is_active',
     ];
 

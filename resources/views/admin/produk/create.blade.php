@@ -33,17 +33,10 @@
 			<input type="file" name="image">
 		</div>
 
-		<div>
-			<label class="block mb-2">Tanggal Publish</label>
-			<input type="datetime-local" name="published_at" class="w-full border rounded px-3 py-2">
-		</div>
 	</div>
 
 	<label class="block mb-2">Meta Title</label>
 	<input name="meta_title" value="{{ old('meta_title') }}" class="w-full border rounded px-3 py-2 mb-3">
-
-	<label class="block mb-2">Meta Description</label>
-	<textarea name="meta_description" class="w-full border rounded px-3 py-2 mb-3">{{ old('meta_description') }}</textarea>
 
 	<div class="flex gap-2">
 		<button class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">

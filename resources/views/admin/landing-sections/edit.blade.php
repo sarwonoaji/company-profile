@@ -35,7 +35,7 @@
         <div>
             <label class="block mb-2">Gambar</label>
             @if($landingSection->image)
-                <img src="{{ asset('storage/'.$landingSection->image) }}" class="h-32 mb-2 rounded">
+                <img src="{{ asset('img/landing/'.$landingSection->image) }}" class="h-32 mb-2 rounded">
             @endif
             <input type="file" name="image" class="mb-2">
             @error('image') <p class="text-red-600 text-sm mb-2">{{ $message }}</p> @enderror

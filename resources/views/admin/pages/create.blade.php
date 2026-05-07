@@ -26,9 +26,6 @@
     <label class="block mb-2">Meta Title</label>
     <input name="meta_title" class="w-full border rounded px-3 py-2 mb-3">
 
-    <label class="block mb-2">Meta Description</label>
-    <textarea name="meta_description" class="w-full border rounded px-3 py-2 mb-3"></textarea>
-
     <label class="inline-flex items-center mb-4">
         <input type="checkbox" name="is_active" value="1" checked>
         <span class="ml-2">Aktif</span>

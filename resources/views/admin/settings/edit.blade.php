@@ -30,7 +30,7 @@
                     <div class="mb-3">
                         <p class="text-sm text-slate-600 mb-2">Logo saat ini:</p>
                         <div class="max-w-xs">
-                            <img src="{{ asset('storage/' . $setting->logo) }}" alt="Logo" class="w-full h-auto rounded-lg shadow">
+                            <img src="{{ asset('img/logo/'.$setting->logo) }}" alt="Logo" class="w-full h-auto rounded-lg shadow">
                         </div>
                     </div>
                     @endif

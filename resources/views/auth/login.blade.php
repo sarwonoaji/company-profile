@@ -64,12 +64,7 @@
         </div>
     </form>
  <div class="mt-8 text-center">
-        <p class="text-gray-500 text-sm">
-            Belum punya akun?
-            <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
-                Daftar sekarang
-            </a>
-        </p>
+        
     </div>
 
 </x-guest-layout>

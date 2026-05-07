@@ -19,7 +19,6 @@ return new class extends Migration
 
             // SEO
             $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
 
             $table->boolean('is_active')->default(true);
             $table->timestamps();

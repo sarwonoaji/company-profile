@@ -25,9 +25,6 @@
     <label class="block mb-2">Meta Title</label>
     <input name="meta_title" value="{{ old('meta_title', $page->meta_title) }}" class="w-full border rounded px-3 py-2 mb-3">
 
-    <label class="block mb-2">Meta Description</label>
-    <textarea name="meta_description" class="w-full border rounded px-3 py-2 mb-3">{{ old('meta_description', $page->meta_description) }}</textarea>
-
     <label class="inline-flex items-center mb-4">
         <input type="checkbox" name="is_active" value="1" {{ old('is_active', $page->is_active) ? 'checked' : '' }}>
         <span class="ml-2">Aktif</span>

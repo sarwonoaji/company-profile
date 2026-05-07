@@ -28,7 +28,6 @@ class PageController extends Controller
             'slug'             => 'required|unique:pages,slug',
             'content'          => 'required',
             'meta_title'       => 'nullable',
-            'meta_description' => 'nullable',
             'is_active'        => 'boolean',
         ]);
 
@@ -54,7 +53,6 @@ class PageController extends Controller
             'slug'             => 'required|unique:pages,slug,' . $page->id,
             'content'          => 'required',
             'meta_title'       => 'nullable',
-            'meta_description' => 'nullable',
             'is_active'        => 'boolean',
         ]);
 

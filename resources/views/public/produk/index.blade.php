@@ -1,7 +1,7 @@
 @extends('public.layout')
 
 @section('title','Produk Kamai')
-@section('meta_description', 'Baca berita dan pengumuman terbaru dari yayasan kami')
+@section('Baca berita dan pengumuman terbaru dari yayasan kami')
 
 @section('content')
 
@@ -49,9 +49,6 @@
                         </svg>
                     </div>
                 @endif
-                <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                    {{ $item->published_at->translatedFormat('j M Y') }}
-                </div>
             </div>
 
             <div class="p-6">

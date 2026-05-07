@@ -31,9 +31,9 @@ class User extends Authenticatable
     }
 
     // RELATION
-    public function news()
+    public function produk()
     {
-        return $this->hasMany(News::class);
+        return $this->hasMany(Produk::class);
     }
 
     // HELPER

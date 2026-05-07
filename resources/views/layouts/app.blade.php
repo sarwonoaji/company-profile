@@ -12,7 +12,7 @@
         <link rel="manifest" href="/manifest.json">
         <link rel="apple-touch-icon" href="/images/icon-192.svg">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Web') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

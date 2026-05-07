@@ -19,7 +19,7 @@ class SettingsController extends \Illuminate\Routing\Controller
         $setting = Setting::firstOrCreate(
             ['id' => 1],
             [
-                'site_name' => 'Yayasan',
+                'site_name' => '',
                 'phone' => '',
                 'email' => '',
                 'address' => '',
@@ -46,13 +46,32 @@ class SettingsController extends \Illuminate\Routing\Controller
 
         $setting = Setting::firstOrCreate(['id' => 1]);
 
-        // Handle logo upload
-        if ($request->hasFile('logo')) {
-            if ($setting->logo && Storage::disk('public')->exists($setting->logo)) {
-                Storage::disk('public')->delete($setting->logo);
+                // Handle logo upload
+                    // upload image baru
+            if ($request->file('logo')) {
+
+                // hapus image lama jika ada
+                if ($setting->logo) {
+                    $oldImage = public_path('img/logo/' . $setting->logo);
+
+                    if (file_exists($oldImage)) {
+                        unlink($oldImage);
+                    }
+                }
+
+                // upload image baru
+                $file = $request->file('logo');
+                $filename = uniqid('logo_', true) . '.' . $file->extension();
+                $destination = public_path('img/logo');
+
+                if (!file_exists($destination)) {
+                    mkdir($destination, 0755, true);
+                }
+
+                $file->move($destination, $filename);
+
+                $validated['logo'] = $filename;
             }
-            $validated['logo'] = $request->file('logo')->store('settings', 'public');
-        }
 
         $setting->update($validated);
 

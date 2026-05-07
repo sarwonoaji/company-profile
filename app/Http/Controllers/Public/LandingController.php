@@ -14,7 +14,7 @@ class LandingController extends Controller
         return view('public.landing', [
             'sections' => LandingSection::active()->get(),
             'latestNews' => Produk::published()
-                                ->latest('published_at')
+                                ->latest('created_at')
                                 ->limit(6)
                                 ->get(),
             'settings' => Setting::first(),

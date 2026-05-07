@@ -37,13 +37,20 @@ class ProdukController extends Controller
             'link'             => 'required|string',
             'image'            => 'nullable|image|max:2048',
             'meta_title'       => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:255',
-            'published_at'     => 'nullable|date',
         ]);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')
-                ->store('produk', 'public');
+         // upload foto
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = uniqid('produk_', true) . '.' . $file->extension();
+            $destination = public_path('img/produk');
+
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
+
+            $file->move($destination, $filename);
+            $data['image'] = $filename;
         }
 
         $data['user_id'] = Auth::id();
@@ -70,18 +77,33 @@ class ProdukController extends Controller
             'link'             => 'required|string',
             'image'            => 'nullable|image|max:2048',
             'meta_title'       => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string|max:255',
-            'published_at'     => 'nullable|date',
         ]);
 
-        if ($request->hasFile('image')) {
-            if ($produk->image) {
-                Storage::disk('public')->delete($produk->image);
-            }
+          // upload image baru
+    if ($request->file('image')) {
 
-            $data['image'] = $request->file('image')
-                ->store('produk', 'public');
+        // hapus image lama jika ada
+        if ($produk->image) {
+            $oldImage = public_path('img/produk/' . $produk->image);
+
+            if (file_exists($oldImage)) {
+                unlink($oldImage);
+            }
         }
+
+        // upload image baru
+        $file = $request->file('image');
+        $filename = uniqid('produk_', true) . '.' . $file->extension();
+        $destination = public_path('img/produk');
+
+        if (!file_exists($destination)) {
+            mkdir($destination, 0755, true);
+        }
+
+        $file->move($destination, $filename);
+
+        $data['image'] = $filename;
+    }
 
         $data['slug'] = Str::slug($data['title']);
 
@@ -94,10 +116,14 @@ class ProdukController extends Controller
 
     public function destroy(Produk $produk)
     {
+         // hapus image jika ada
         if ($produk->image) {
-            Storage::disk('public')->delete($produk->image);
-        }
+            $imagePath = public_path('img/produk/' . $produk->image);
 
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
         $produk->delete();
 
         return back()->with('success', 'Produk berhasil dihapus');

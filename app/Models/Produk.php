@@ -18,13 +18,12 @@ class Produk extends Model
         'link',
         'image',
         'meta_title',
-        'meta_description',
-        'published_at',
         'user_id',
+        'created_at',
     ];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'created_at' => 'datetime',
     ];
 
     // RELATION
@@ -36,8 +35,8 @@ class Produk extends Model
     // SCOPE: published
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at')
-                     ->where('published_at', '<=', now());
+        return $query->whereNotNull('created_at')
+                     ->where('created_at', '<=', now());
     }
 
     // AUTO SLUG

@@ -1,7 +1,7 @@
 @extends('public.layout')
 
 @section('title', $produk->meta_title ?? $produk->title)
-@section('meta_description', $produk->meta_description ?? $produk->excerpt)
+@section('meta_description', $produk->excerpt)
 
 @section('content')
 
@@ -32,7 +32,7 @@
         {{-- FEATURED IMAGE --}}
         @if($produk->image)
         <div class="mb-8">
-            <img src="{{ asset('storage/'.$produk->image) }}"
+            <img src="{{ asset('img/produk/'.$produk->image) }}"
                  alt="{{ $produk->title }}" 
                  class="w-full h-96 object-cover rounded-lg shadow-lg">
         </div>

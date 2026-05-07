@@ -30,17 +30,6 @@
             </div>
 
             <div>
-                <div class="text-sm text-slate-500">Status</div>
-                @if($produk->published_at && $produk->published_at <= now())
-                    <div class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-emerald-600 text-white">Published</div>
-                @else
-                    <div class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">Draft</div>
-                @endif
-            </div>
-
-            <div>
-                <div class="text-sm text-slate-500">Tanggal Publish</div>
-                <div class="text-slate-700 text-sm">{{ $produk->published_at ? $produk->published_at->format('d M Y H:i') : 'Belum ditentukan' }}</div>
             </div>
         </div>
 
@@ -55,11 +44,10 @@
         <div class="border-t pt-4 flex items-center justify-between">
             <div class="text-sm text-slate-600">
                 <div><strong>Meta Title:</strong> {{ $produk->meta_title ?? '-' }}</div>
-                <div class="mt-1"><strong>Meta Description:</strong> {{ $produk->meta_description ?? '-' }}</div>
             </div>
 
             <div class="flex items-center gap-2">
-                <a href="{{ route('news.show', $produk->slug) }}" target="_blank" class="inline-flex items-center gap-2 text-slate-700 border border-slate-200 px-3 py-2 rounded hover:bg-slate-50">
+                <a href="{{ route('produk.show', $produk->slug) }}" target="_blank" class="inline-flex items-center gap-2 text-slate-700 border border-slate-200 px-3 py-2 rounded hover:bg-slate-50">
                     <span class="material-symbols-outlined">visibility</span>
                     Lihat Publik
                 </a>

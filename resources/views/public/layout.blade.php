@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Yayasan')</title>
+    <title>@yield('title', 'Web')</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- SEO BASIC --}}
-    <meta name="description" content="@yield('meta_description','Website resmi yayasan')">
+    <meta name="description" content="@yield('Website resmi yayasan')">
     <meta name="mobile-web-app-capable" content="yes">
     
     {{-- AOS (Animate On Scroll) --}}
@@ -193,7 +193,7 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="{{ url('/') }}" class="flex items-center gap-2 hover:opacity-80 transition">
                 @if($settings && $settings->logo)
-                <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="h-10 w-auto">
+                <img src="{{ asset('img/logo/'.$settings->logo) }}" alt="Logo" class="h-10 w-auto">
                 @else
                 <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,7 +201,9 @@
                     </svg>
                 </div>
                 @endif
-                <span class="font-bold text-2xl gradient-text">{{ $settings->site_name ?? 'Yayasan' }}</span>
+                <span class="font-bold text-2xl bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
+                {{ $settings->site_name ?? 'Web' }}
+            </span>
             </a>
 
             <nav class="space-x-1 hidden md:flex">
@@ -257,7 +259,7 @@
                 <div data-aos="fade-up">
                     <div class="flex items-center gap-3 mb-3">
                         @if($settings && $settings->logo)
-                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="h-12 w-auto">
+                        <img src="{{ asset('img/logo/' . $settings->logo) }}" alt="Logo" class="h-12 w-auto">
                         @else
                         <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,10 +267,10 @@
                             </svg>
                         </div>
                         @endif
-                        <h3 class="font-bold text-white text-lg text-blue-400">{{ $settings->site_name ?? 'Yayasan' }}</h3>
+                        <h3 class="font-bold text-white text-lg text-blue-400">{{ $settings->site_name ?? 'Website' }}</h3>
                     </div>
                     <p class="text-sm text-gray-400 leading-relaxed">
-                        Website resmi yayasan yang berdedikasi untuk memberikan pelayanan terbaik bagi masyarakat.
+                        Website resmi jasa pembuatan website yang berdedikasi menghadirkan solusi digital profesional, modern, dan berkualitas untuk membantu bisnis berkembang lebih cepat di era digital.
                     </p>
                     @if($settings && ($settings->facebook || $settings->instagram || $settings->youtube))
                     <div class="flex gap-3 mt-4">

@@ -35,9 +35,18 @@ class LandingSectionController extends Controller
         // Ensure checkbox absence becomes false
         $data['is_active'] = $request->boolean('is_active');
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')
-                ->store('landing', 'public');
+         // upload foto
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $filename = uniqid('landing_', true) . '.' . $file->extension();
+            $destination = public_path('img/landing');
+
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
+
+            $file->move($destination, $filename);
+            $data['image'] = $filename;
         }
 
         LandingSection::create($data);
@@ -66,14 +75,30 @@ class LandingSectionController extends Controller
         // Ensure checkbox absence becomes false when unchecked
         $data['is_active'] = $request->boolean('is_active');
 
-        if ($request->hasFile('image')) {
+                // upload image baru
+        if ($request->file('image')) {
 
+            // hapus image lama jika ada
             if ($landingSection->image) {
-                Storage::disk('public')->delete($landingSection->image);
+                $oldImage = public_path('img/landing/' . $landingSection->image);
+
+                if (file_exists($oldImage)) {
+                    unlink($oldImage);
+                }
             }
 
-            $data['image'] = $request->file('image')
-                ->store('landing', 'public');
+            // upload image baru
+            $file = $request->file('image');
+            $filename = uniqid('landing_', true) . '.' . $file->extension();
+            $destination = public_path('img/landing');
+
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
+
+            $file->move($destination, $filename);
+
+            $data['image'] = $filename;
         }
 
         $landingSection->update($data);
@@ -86,7 +111,11 @@ class LandingSectionController extends Controller
     public function destroy(LandingSection $landingSection)
     {
         if ($landingSection->image) {
-            Storage::disk('public')->delete($landingSection->image);
+            $imagePath = public_path('img/landing/' . $landingSection->image);
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
         }
 
         $landingSection->delete();

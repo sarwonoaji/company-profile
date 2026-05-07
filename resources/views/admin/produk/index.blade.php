@@ -30,8 +30,6 @@
             <tr class="text-left bg-slate-700">
                 <th class="p-3 text-slate-100">Gambar</th>
                 <th class="p-3 text-slate-100">Judul</th>
-                <th class="p-3 text-slate-100">Status</th>
-                <th class="p-3 text-slate-100">Tanggal</th>
                 <th class="p-3 text-slate-100">Aksi</th>
             </tr>
         </thead>
@@ -51,16 +49,6 @@
                     <div class="font-semibold">{{ $item->title }}</div>
                     <div class="text-sm text-gray-500">{{ $item->slug }}</div>
                 </td>
-
-                <td class="p-3">
-                    @if($item->published_at && $item->published_at <= now())
-                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-emerald-600 text-white">Published</span>
-                    @else
-                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">Draft</span>
-                    @endif
-                </td>
-
-                <td class="p-3 text-sm">{{ $item->published_at?->format('d M Y') ?? '-' }}</td>
 
                 <td class="p-3">
                     <div class="flex items-center gap-2">

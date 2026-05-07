@@ -23,7 +23,7 @@
                 <div class="col-span-full">
                     <label class="block text-sm font-medium text-slate-600 mb-2">Logo Situs</label>
                     <div class="max-w-xs">
-                        <img src="{{ asset('storage/' . $setting->logo) }}" alt="Logo" class="w-full h-auto rounded-lg shadow">
+                        <img src="{{ asset('img/logo/' . $setting->logo) }}" alt="Logo" class="w-full h-auto rounded-lg shadow">
                     </div>
                 </div>
                 @endif

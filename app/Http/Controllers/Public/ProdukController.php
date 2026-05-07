@@ -11,7 +11,7 @@ class ProdukController extends Controller
     {
         return view('public.produk.index', [
             'produk' => Produk::published()
-                        ->latest('published_at')
+                        ->latest('created_at')
                         ->paginate(6)
         ]);
     }
