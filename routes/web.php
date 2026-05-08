@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,13 @@ use App\Http\Controllers\Admin\AdminProfileController;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 // PAGE
-Route::get('/abcjk', [PublicPageController::class, 'profil'])->name('profil');
-Route::get('/visi-misi', [PublicPageController::class, 'visiMisi'])->name('visi-misi');
-Route::get('/kontak', [PublicPageController::class, 'kontak'])->name('kontak');
+Route::get('/Xk92LmQa', [PublicPageController::class, 'profil'])->name('profil');
+Route::get('/Pz81QaRt', [PublicPageController::class, 'visiMisi'])->name('visi-misi');
+Route::get('/Ab71YtUi', [PublicPageController::class, 'kontak'])->name('kontak');
 
 // PRODUK
-Route::get('/produk', [PublicProdukController::class, 'index'])->name('produk.index');
-Route::get('/produk/{slug}', [PublicProdukController::class, 'show'])->name('produk.show');
+Route::get('/Jh84KlWs', [PublicProdukController::class, 'index'])->name('produk.index');
+Route::get('/Yp52NcVz/{slug}', [PublicProdukController::class, 'show'])->name('produk.show');
 
 // DYNAMIC PAGE - untuk halaman custom lainnya (HARUS PALING AKHIR)
 
@@ -61,6 +62,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::resource('menus', MenuController::class);
     Route::resource('produk', ProdukController::class);
     Route::resource('pages', PageController::class);
+    Route::resource('banners', BannerController::class);
     
     // Settings
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');

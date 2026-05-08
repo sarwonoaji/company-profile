@@ -100,6 +100,11 @@
                 <span class="nav-tooltip absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-800 text-white text-xs px-2 py-1 opacity-0 pointer-events-none">Landing Page</span>
             </a>
 
+            <a href="{{ route('admin.banners.index') }}" class="relative flex items-center gap-2 px-2 py-2 rounded-md {{ request()->routeIs('admin.banners*') ? 'bg-slate-800' : 'hover:bg-slate-900' }}">      
+                <span class="material-symbols-outlined text-slate-300 text-[18px]">image</span>
+                <span class="nav-text text-sm">Banners</span>
+                <span class="nav-tooltip absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-800 text-white text-xs px-2 py-1 opacity-0 pointer-events-none">Banners</span>
+
             <a href="{{ route('admin.menus.index') }}" class="relative flex items-center gap-2 px-2 py-2 rounded-md {{ request()->routeIs('admin.menus*') ? 'bg-slate-800' : 'hover:bg-slate-900' }}">
                 <span class="material-symbols-outlined text-slate-300 text-[18px]">menu</span>
                 <span class="nav-text text-sm">Menu Navbar</span>

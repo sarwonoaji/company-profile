@@ -5,12 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#10b981">
-        <meta name="description" content="Yayasan Sosial Indonesia - Membantu masyarakat dengan program sosial yang berkelanjutan">
+        <meta name="description" content="Company - Membantu pembuatan website yang berkelanjutan">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="apple-mobile-web-app-title" content="Yayasan">
+        <meta name="apple-mobile-web-app-title" content="Company">
         <link rel="manifest" href="/manifest.json">
-        <link rel="apple-touch-icon" href="/images/icon-192.svg">
+        <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}">
+        <link rel="apple-touch-icon" href="{{ asset('img/favicon.png') }}">         
 
         <title>{{ config('app.name', 'Web') }}</title>
 

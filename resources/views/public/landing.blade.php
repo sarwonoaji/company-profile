@@ -83,15 +83,24 @@
                     🚀 Jasa Pembuatan Website Profesional
                 </span>
 
-                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                <!-- <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
                     Bangun Website Modern untuk Bisnis Anda
+                </h1> -->
+
+                 <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                   
+                    {{ $banners->first()->judul ?? 'Bangun' }}
                 </h1>
 
-                <p class="text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
+                <!-- <p class="text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
                     Kami membantu bisnis, UMKM, dan company profile tampil lebih profesional
                     melalui website modern, responsive, cepat, dan berkualitas tinggi
                     untuk meningkatkan branding serta kepercayaan pelanggan.
-                </p>
+                </p> -->
+
+               <div class="text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
+                    {!! $banners->first()->deskripsi ?? 'Kami membantu' !!}
+                </div>
 
                 {{-- BUTTON --}}
                 <div class="flex flex-wrap gap-4">
@@ -134,7 +143,7 @@
             <div class="relative" data-aos="fade-left">
 
                 <div class="relative z-10">
-                    <img src="{{ asset('img/banner-company.png') }}"
+                    <img src="{{ asset('img/banners/'.$banners->first()->image) }}"
                         alt="Company Profile"
                         class="w-full rounded-3xl shadow-2xl">
                 </div>
