@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex items-center justify-between mb-4">
     <h1 class="text-xl font-bold flex items-center gap-2">
-        <span class="material-symbols-outlined text-emerald-600">add_box</span>
+        <span class="material-symbols-outlined text-blue-600">add_box</span>
         Tambah Menu Baru
     </h1>
 </div>
@@ -52,11 +52,11 @@
 </div>
 
 <div class="flex gap-2">
-    <button type="submit" class="bg-emerald-600 text-white px-6 py-2 rounded hover:bg-emerald-700 inline-flex items-center gap-2">
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 inline-flex items-center gap-2">
         <span class="material-symbols-outlined">save</span>
         Simpan Menu
     </button>
-    <a href="{{ route('admin.menus.index') }}" class="bg-gray-100 text-emerald-700 px-6 py-2 rounded hover:bg-emerald-50 inline-flex items-center gap-2 border border-emerald-100">
+    <a href="{{ route('admin.menus.index') }}" class="bg-gray-100 text-blue-700 px-6 py-2 rounded hover:bg-blue-50 inline-flex items-center gap-2 border border-blue-100">
         <span class="material-symbols-outlined">arrow_back</span>
         Batal
     </a>

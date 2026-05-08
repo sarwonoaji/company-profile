@@ -5,10 +5,10 @@
 @section('content')
 <div class="flex items-center justify-between mb-4">
 	<h1 class="text-xl font-bold flex items-center gap-2">
-		<span class="material-symbols-outlined text-emerald-600">post_add</span>
+		<span class="material-symbols-outlined text-blue-600">post_add</span>
 		Tambah Produk
 	</h1>
-	<a href="{{ route('admin.produk.index') }}" class="text-sm text-emerald-600 hover:underline">Kembali</a>
+	<a href="{{ route('admin.produk.index') }}" class="text-sm text-blue-600 hover:underline">Kembali</a>
 </div>
 
 <form method="POST" action="{{ route('admin.produk.store') }}" enctype="multipart/form-data" class="bg-white p-6 rounded shadow">
@@ -39,12 +39,12 @@
 	<input name="meta_title" value="{{ old('meta_title') }}" class="w-full border rounded px-3 py-2 mb-3">
 
 	<div class="flex gap-2">
-		<button class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
+		<button class="bg-blue-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
 			<span class="material-symbols-outlined">save</span>
 			Simpan
 		</button>
 
-		<a href="{{ route('admin.produk.index') }}" class="px-4 py-2 rounded border border-emerald-100 text-emerald-700 hover:bg-emerald-50 inline-flex items-center gap-2">
+		<a href="{{ route('admin.produk.index') }}" class="px-4 py-2 rounded border border-blue-100 text-blue-700 hover:bg-blue-50 inline-flex items-center gap-2">
 			<span class="material-symbols-outlined">arrow_back</span>
 			Batal
 		</a>

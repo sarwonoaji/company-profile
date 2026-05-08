@@ -6,10 +6,10 @@
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-4">
             <h1 class="text-xl font-bold flex items-center gap-2">
-                <span class="material-symbols-outlined text-emerald-600">settings</span>
+                <span class="material-symbols-outlined text-blue-600">settings</span>
                 Pengaturan Situs
             </h1>
-            <a href="{{ route('admin.settings.edit') }}" class="inline-flex items-center px-3 py-2 bg-emerald-600 rounded text-sm text-white hover:bg-emerald-700">
+            <a href="{{ route('admin.settings.edit') }}" class="inline-flex items-center px-3 py-2 bg-blue-600 rounded text-sm text-white hover:bg-blue-700">
                 <span class="material-symbols-outlined mr-2">edit</span>
                 Edit Pengaturan
             </a>
@@ -65,7 +65,7 @@
                     <label class="block text-sm font-medium text-slate-600 mb-1">Facebook</label>
                     <div class="px-3 py-2 bg-slate-50 border border-slate-200 rounded">
                         @if($setting->facebook)
-                            <a href="{{ $setting->facebook }}" target="_blank" class="text-emerald-600 hover:text-emerald-700 break-all">{{ $setting->facebook }}</a>
+                            <a href="{{ $setting->facebook }}" target="_blank" class="text-blue-600 hover:text-blue-700 break-all">{{ $setting->facebook }}</a>
                         @else
                             <p class="text-slate-500">-</p>
                         @endif
@@ -76,7 +76,7 @@
                     <label class="block text-sm font-medium text-slate-600 mb-1">Instagram</label>
                     <div class="px-3 py-2 bg-slate-50 border border-slate-200 rounded">
                         @if($setting->instagram)
-                            <a href="{{ $setting->instagram }}" target="_blank" class="text-emerald-600 hover:text-emerald-700 break-all">{{ $setting->instagram }}</a>
+                            <a href="{{ $setting->instagram }}" target="_blank" class="text-blue-600 hover:text-blue-700 break-all">{{ $setting->instagram }}</a>
                         @else
                             <p class="text-slate-500">-</p>
                         @endif
@@ -87,7 +87,7 @@
                     <label class="block text-sm font-medium text-slate-600 mb-1">YouTube</label>
                     <div class="px-3 py-2 bg-slate-50 border border-slate-200 rounded">
                         @if($setting->youtube)
-                            <a href="{{ $setting->youtube }}" target="_blank" class="text-emerald-600 hover:text-emerald-700 break-all">{{ $setting->youtube }}</a>
+                            <a href="{{ $setting->youtube }}" target="_blank" class="text-blue-600 hover:text-blue-700 break-all">{{ $setting->youtube }}</a>
                         @else
                             <p class="text-slate-500">-</p>
                         @endif
@@ -98,7 +98,7 @@
         @else
         <div class="bg-white p-6 rounded shadow text-center">
             <p class="text-slate-500 mb-4">Belum ada pengaturan. Silakan buat pengaturan baru.</p>
-            <a href="{{ route('admin.settings.edit') }}" class="inline-flex items-center px-4 py-2 bg-emerald-600 text-white rounded text-sm hover:bg-emerald-700">
+            <a href="{{ route('admin.settings.edit') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded text-sm hover:bg-blue-700">
                 <span class="material-symbols-outlined mr-2">add</span>
                 Buat Pengaturan
             </a>

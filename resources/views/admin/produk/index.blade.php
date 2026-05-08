@@ -5,12 +5,12 @@
 @section('content')
 <div class="mb-2">
     <h1 class="text-2xl font-bold flex items-center gap-2">
-        <span class="material-symbols-outlined text-emerald-600">newspaper</span>
+        <span class="material-symbols-outlined text-blue-600">newspaper</span>
         Produk
     </h1>
 
     <div class="mt-3">
-        <a href="{{ route('admin.produk.create') }}" class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
+        <a href="{{ route('admin.produk.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
             <span class="material-symbols-outlined">add</span>
             Tambah Produk
         </a>
@@ -18,8 +18,20 @@
 
 </div>
 
+    <div class="mt-4 flex items-center justify-between gap-4">
+        <div class="text-sm text-slate-600">Menampilkan: {{ $produk->total() }} produk</div>
+
+        <form method="GET" action="{{ route('admin.produk.index') }}" class="ml-auto flex items-center gap-2">
+            <input type="text" name="q" value="{{ request('q') }}" placeholder="Cari judul atau isi..." class="form-input px-3 py-2 rounded border" />
+            <button type="submit" class="bg-blue-600 text-white px-3 py-2 rounded">Cari</button>
+            @if(request('q'))
+                <a href="{{ route('admin.produk.index') }}" class="text-sm text-slate-600 ml-2">Reset</a>
+            @endif
+        </form>
+    </div>
+
 @if(session('success'))
-    <div class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded mb-4">
+    <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded mb-4">
         {{ session('success') }}
     </div>
 @endif
@@ -36,7 +48,7 @@
 
         <tbody>
         @forelse($produk as $item)
-            <tr class="border-b hover:bg-emerald-50">
+            <tr class="border-b hover:bg-blue-50">
                 <td class="p-3">
                     @if($item->image)
                         <img src="{{ asset('img/produk/'.$item->image) }}" class="h-14 rounded">
@@ -52,7 +64,7 @@
 
                 <td class="p-3">
                     <div class="flex items-center gap-2">
-                        <a href="{{ route('admin.produk.edit', $item) }}" class="inline-flex items-center justify-center w-8 h-8 rounded hover:bg-emerald-50 text-emerald-600 border border-transparent hover:border-emerald-100" title="Edit">
+                        <a href="{{ route('admin.produk.edit', $item) }}" class="inline-flex items-center justify-center w-8 h-8 rounded hover:bg-blue-50 text-blue-600 border border-transparent hover:border-blue-100" title="Edit">
                             <span class="material-symbols-outlined text-[18px]">edit</span>
                         </a>
 
@@ -76,5 +88,8 @@
         @endforelse
         </tbody>
     </table>
+</div>
+<div class="mt-4">
+    {{ $produk->withQueryString()->links() }}
 </div>
 @endsection

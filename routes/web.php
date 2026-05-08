@@ -26,7 +26,7 @@ use App\Http\Controllers\Admin\AdminProfileController;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 // PAGE
-Route::get('/profil', [PublicPageController::class, 'profil'])->name('profil');
+Route::get('/abcjk', [PublicPageController::class, 'profil'])->name('profil');
 Route::get('/visi-misi', [PublicPageController::class, 'visiMisi'])->name('visi-misi');
 Route::get('/kontak', [PublicPageController::class, 'kontak'])->name('kontak');
 

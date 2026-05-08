@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex items-center justify-between mb-4">
     <h1 class="text-xl font-bold flex items-center gap-2">
-        <span class="material-symbols-outlined text-emerald-600">edit</span>
+        <span class="material-symbols-outlined text-blue-600">edit</span>
         Edit Halaman
     </h1>
 </div>
@@ -31,12 +31,12 @@
     </label>
 
     <div class="flex gap-2">
-        <button class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
             <span class="material-symbols-outlined">save</span>
             Update
         </button>
 
-        <a href="{{ route('admin.pages.index') }}" class="px-4 py-2 rounded border border-emerald-100 text-emerald-700 hover:bg-emerald-50 inline-flex items-center gap-2">
+        <a href="{{ route('admin.pages.index') }}" class="px-4 py-2 rounded border border-blue-100 text-blue-700 hover:bg-blue-50 inline-flex items-center gap-2">
             <span class="material-symbols-outlined">arrow_back</span>
             Batal
         </a>

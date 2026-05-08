@@ -5,8 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    @php $settings = \App\Models\Setting::first(); @endphp
+                    <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
+                        @if($settings && $settings->logo)
+                            <img src="{{ asset('img/logo/' . $settings->logo) }}" alt="Logo" class="block h-9 w-auto" />
+                        @else
+                            <span class="font-bold text-lg text-gray-800">{{ $settings->site_name ?? config('app.name', 'Website') }}</span>
+                        @endif
                     </a>
                 </div>
 

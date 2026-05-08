@@ -16,7 +16,7 @@
 
         <style>
             body {
-                background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+                background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
                 min-height: 100vh;
                 position: relative;
                 overflow-x: hidden;
@@ -30,9 +30,9 @@
                 right: 0;
                 bottom: 0;
                 background: 
-                    radial-gradient(circle at 20% 80%, rgba(5, 150, 105, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
                     radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.2) 0%, transparent 50%);
+                    radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.2) 0%, transparent 50%);
                 animation: float 20s ease-in-out infinite;
             }
 
@@ -83,12 +83,12 @@
             }
 
             .btn-primary {
-                background: linear-gradient(135deg, #059669 0%, #047857 100%);
+                background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
                 border: none;
                 position: relative;
                 overflow: hidden;
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+                box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
             }
 
             .btn-primary::before {
@@ -107,9 +107,9 @@
             }
 
             .btn-primary:hover {
-                background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+                background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 100%);
                 transform: translateY(-2px) scale(1.02);
-                box-shadow: 0 8px 25px rgba(5, 150, 105, 0.6);
+                box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
             }
 
             .btn-primary:active {
@@ -127,23 +127,23 @@
             }
 
             .form-input:focus {
-                border-color: #059669;
+                border-color: #2563EB;
                 background: rgba(255, 255, 255, 0.95);
                 box-shadow: 
-                    0 0 0 3px rgba(5, 150, 105, 0.1),
-                    0 4px 20px rgba(5, 150, 105, 0.15);
+                    0 0 0 3px rgba(37, 99, 235, 0.1),
+                    0 4px 20px rgba(37, 99, 235, 0.15);
                 transform: translateY(-1px);
             }
 
             .form-input:hover {
-                border-color: rgba(5, 150, 105, 0.3);
+                border-color: rgba(37, 99, 235, 0.3);
             }
 
             .logo-container {
-                background: linear-gradient(135deg, #059669 0%, #047857 100%);
+                background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
                 box-shadow: 
-                    0 15px 35px rgba(5, 150, 105, 0.4),
-                    0 5px 15px rgba(4, 120, 87, 0.3);
+                    0 15px 35px rgba(37, 99, 235, 0.4),
+                    0 5px 15px rgba(29, 78, 216, 0.3);
                 animation: logoPulse 2s ease-in-out infinite;
                 position: relative;
                 overflow: hidden;
@@ -180,7 +180,7 @@
             }
 
             .form-input:focus + .input-icon {
-                color: #059669;
+                color: #2563EB;
             }
 
             .checkbox-custom {
@@ -196,8 +196,8 @@
             }
 
             .checkbox-custom:checked {
-                background: linear-gradient(135deg, #059669 0%, #047857 100%);
-                border-color: #059669;
+                background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+                border-color: #2563EB;
             }
 
             .checkbox-custom:checked::after {
@@ -223,7 +223,7 @@
                 left: 0;
                 width: 0;
                 height: 1px;
-                background: linear-gradient(90deg, #059669, #047857);
+                background: linear-gradient(90deg, #2563EB, #1D4ED8);
                 transition: width 0.3s ease;
             }
 
@@ -232,7 +232,7 @@
             }
 
             .welcome-text {
-                background: linear-gradient(135deg, #059669 0%, #047857 100%);
+                background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -265,7 +265,7 @@
             .form-input:focus,
             .checkbox-custom:focus,
             .btn-primary:focus {
-                outline: 2px solid #059669;
+                outline: 2px solid #2563EB;
                 outline-offset: 2px;
             }
 
@@ -304,9 +304,9 @@
             <div class="logo-container w-20 h-20 rounded-2xl flex items-center justify-center mb-8">
                 <a href="/">
                     @if($settings && $settings->logo)
-                        <img src="{{ asset('storage/' . $settings->logo) }}" alt="Logo" class="w-16 h-16 object-contain">
+                        <img src="{{ asset('img/logo/'.$settings->logo) }}" alt="Logo" class="w-16 h-16 object-contain">
                     @else
-                        <x-application-logo class="w-12 h-12 fill-current text-white" />
+                        <span class="font-bold text-white text-lg">{{ $settings->site_name ?? config('app.name', 'Website') }}</span>
                     @endif
                 </a>
             </div>

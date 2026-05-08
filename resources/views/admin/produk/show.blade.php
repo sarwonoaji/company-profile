@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex items-start justify-between gap-4 mb-4">
     <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-emerald-600 text-3xl">article</span>
+        <span class="material-symbols-outlined text-blue-600 text-3xl">article</span>
         <div>
             <h1 class="text-xl font-bold">{{ $produk->title }}</h1>
             <div class="text-sm text-slate-500">{{ $produk->slug }}</div>

@@ -79,9 +79,9 @@
     <aside class="sidebar-main w-56 md:w-64 bg-slate-800 text-slate-100 p-3 md:p-4 shadow-lg md:fixed md:inset-y-0 md:left-0 md:h-screen md:overflow-y-auto z-20">
         <div class="relative flex items-center gap-2 px-1 py-2 mb-5">
             <div class="flex items-center gap-2 relative">
-                <div class="w-9 h-9 bg-emerald-600 rounded flex items-center justify-center text-white font-semibold text-sm">Y</div>
+                <div class="w-9 h-9 bg-blue-600 rounded flex items-center justify-center text-white font-semibold text-sm">Y</div>
                 <div>
-                    <div class="brand-text font-semibold text-sm">Yayasan</div>
+                    <div class="brand-text font-semibold text-sm">Company</div>
                     <div class="brand-text text-[11px] text-slate-400">Admin Panel</div>
                 </div>
                 
@@ -157,7 +157,7 @@
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
                             <!-- User Avatar -->
-                            <div class="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-semibold">
                                 {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                             </div>
                             
@@ -176,7 +176,7 @@
                             <!-- User Info Header -->
                             <div class="px-4 py-3 border-b border-gray-200">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-semibold">
+                                    <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
                                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                                     </div>
                                     <div>

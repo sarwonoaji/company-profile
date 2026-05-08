@@ -5,12 +5,12 @@
 @section('content')
 <div class="mb-2">
     <h1 class="text-2xl font-bold flex items-center gap-2">
-        <span class="material-symbols-outlined text-emerald-600">menu</span>
+        <span class="material-symbols-outlined text-blue-600">menu</span>
         Kelola Menu Navbar
     </h1>
 
     <div class="mt-3">
-        <a href="{{ route('admin.menus.create') }}" class="bg-emerald-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
+        <a href="{{ route('admin.menus.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded inline-flex items-center gap-2">
             <span class="material-symbols-outlined">add</span>
             Tambah Menu
         </a>
@@ -19,7 +19,7 @@
 </div>
 
 @if(session('success'))
-    <div class="bg-emerald-100 text-emerald-700 px-4 py-2 rounded mb-4">
+    <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded mb-4">
         {{ session('success') }}
     </div>
 @endif
@@ -37,20 +37,20 @@
         </thead>
         <tbody>
             @forelse($menus as $menu)
-            <tr class="border-b hover:bg-emerald-50">
+            <tr class="border-b hover:bg-blue-50">
                 <td class="p-3 text-center font-semibold">{{ $menu->order ?? '-' }}</td>
                 <td class="p-3">{{ $menu->title }}</td>
                 <td class="p-3 text-sm text-gray-600">{{ $menu->url }}</td>
                 <td class="p-3">
                     @if($menu->is_active)
-                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-emerald-600 text-white">Aktif</span>
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-blue-600 text-white">Aktif</span>
                     @else
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">Nonaktif</span>
                     @endif
                 </td>
                 <td class="p-3">
                     <div class="flex items-center gap-2">
-                        <a href="{{ route('admin.menus.edit', $menu) }}" class="inline-flex items-center justify-center w-8 h-8 rounded hover:bg-emerald-50 text-emerald-600 border border-transparent hover:border-emerald-100" title="Edit">
+                        <a href="{{ route('admin.menus.edit', $menu) }}" class="inline-flex items-center justify-center w-8 h-8 rounded hover:bg-blue-50 text-blue-600 border border-transparent hover:border-blue-100" title="Edit">
                             <span class="material-symbols-outlined text-[18px]">edit</span>
                         </a>
 

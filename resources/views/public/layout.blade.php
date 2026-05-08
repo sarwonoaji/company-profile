@@ -259,15 +259,17 @@
                 <div data-aos="fade-up">
                     <div class="flex items-center gap-3 mb-3">
                         @if($settings && $settings->logo)
-                        <img src="{{ asset('img/logo/' . $settings->logo) }}" alt="Logo" class="h-12 w-auto">
+                            <img src="{{ asset('img/logo/' . $settings->logo) }}" alt="Logo" class="h-12 w-auto">
                         @else
-                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                            </svg>
-                        </div>
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
                         @endif
-                        <h3 class="font-bold text-white text-lg text-blue-400">{{ $settings->site_name ?? 'Website' }}</h3>
+                        @unless($settings && $settings->logo)
+                            <h3 class="font-bold text-white text-lg text-blue-400">{{ $settings->site_name ?? 'Website' }}</h3>
+                        @endunless
                     </div>
                     <p class="text-sm text-gray-400 leading-relaxed">
                         Website resmi jasa pembuatan website yang berdedikasi menghadirkan solusi digital profesional, modern, dan berkualitas untuk membantu bisnis berkembang lebih cepat di era digital.
@@ -328,7 +330,13 @@
             <div class="border-t-2 border-blue-600 pt-8">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
                     <p class="text-sm text-gray-400">
-                        © {{ date('Y') }} <span class="text-blue-400 font-semibold">{{ $settings->site_name ?? 'Yayasan' }}</span>. All rights reserved.
+                        © {{ date('Y') }} 
+                        @if($settings && $settings->logo)
+                            <img src="{{ asset('img/logo/'.$settings->logo) }}" alt="Logo" class="inline h-4 w-auto align-middle" />
+                        @else
+                            <span class="text-blue-400 font-semibold">{{ $settings->site_name ?? 'Yayasan' }}</span>
+                        @endif
+                        . All rights reserved.
                     </p>
                     
                 </div>
@@ -438,5 +446,24 @@
     @endif
 
     @stack('scripts')
+    <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable common DevTools shortcuts: F12, Ctrl+Shift+I/J, Ctrl+U
+        document.addEventListener('keydown', function(e) {
+            try {
+                const key = (e.key || '').toString().toLowerCase();
+                if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (key === 'i' || key === 'j')) || (e.ctrlKey && key === 'u')) {
+                    e.preventDefault();
+                    return false;
+                }
+            } catch (err) {
+                // ignore
+            }
+        });
+    </script>
 </body>
 </html>

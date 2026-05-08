@@ -11,11 +11,19 @@ use Illuminate\Support\Str;
 
 class ProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.produk.index', [
-            'produk' => Produk::latest()->get()
-        ]);
+        $query = Produk::query();
+
+        if ($q = $request->query('q')) {
+            $query->where('title', 'like', "%{$q}%")
+                  ->orWhere('excerpt', 'like', "%{$q}%")
+                  ->orWhere('content', 'like', "%{$q}%");
+        }
+
+        $produk = $query->latest()->paginate(10);
+
+        return view('admin.produk.index', compact('produk'));
     }
 
     public function create()
